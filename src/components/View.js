@@ -39,9 +39,7 @@ const View = props => {
         setEditId(id);
     };
 
-    const handleEditCancel = () => {
-        setEditing(false);
-    };
+    const handleEditCancel = () => setEditing(false);
 
     return(<ComponentContainer>
         <HeaderContainer>View Articles</HeaderContainer>

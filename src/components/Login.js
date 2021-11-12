@@ -12,7 +12,6 @@ const Login = () => {
     const formChange = e => setCredentials({ ...credentials, [e.target.name]: e.target.value });
     const formSubmit = e => {
         e.preventDefault();
-        // AUTHENTICATION //
         axios.post(`${BASE_URL}/api/login`, credentials)
             .then(res => {
                 localStorage.setItem("token", res.data.token);
