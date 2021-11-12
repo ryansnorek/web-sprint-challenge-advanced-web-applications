@@ -23,8 +23,8 @@ const Login = () => {
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
-            <form onSubmit={formSubmit}>
-                <input 
+            <FormGroup onSubmit={formSubmit}>
+                <Input 
                 id="username"
                 name="username"
                 value={credentials.username}
@@ -32,7 +32,7 @@ const Login = () => {
                 placeholder="username"
                 onChange={formChange}
                 />
-                <input 
+                <Input 
                 id="password"
                 name="password"
                 value={credentials.password}
@@ -40,8 +40,8 @@ const Login = () => {
                 placeholder="password"
                 onChange={formChange}
                 />
-                <button id="submit">submit</button>
-            </form>
+                <Button id="submit">submit</Button>
+            </FormGroup>
             {errors ? <p id="error">**a server provided error message can be found in {errors}**</p> : ""}
         </ModalContainer>
     </ComponentContainer>);
@@ -81,5 +81,9 @@ const Input = styled.input`
 
 const Button = styled.button`
     padding:1rem;
+    margin-bottom: 10%; 
     width: 100%;
+    background-color: crimson;
+    color: snow;
+    font-size: 1.2rem;
 `
