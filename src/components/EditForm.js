@@ -9,24 +9,24 @@ const initialArticle = {
     body: ""
 };
 
-const EditForm = (props)=> {
+const EditForm = props => {
     const [article, setArticle]  = useState(initialArticle);
     const {handleEdit, handleEditCancel, editId} = props;
 
-    const handleChange = (e)=> {
+    const handleChange = e => {
         setArticle({
             ...article,
             [e.target.name]: e.target.value
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
         handleEdit(article);
     }
 
 
-    const handleCancel = (e) => {
+    const handleCancel = e => {
         e.preventDefault();
         handleEditCancel();
     }
