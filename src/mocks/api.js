@@ -12,7 +12,7 @@ api.use(cors())
 const authenticator = (req, res, next) => {
   const { authorization } = req.headers;
   const { token } = credentials;
-
+  console.log("AUTOR", authorization)
   if (authorization === token) {
     next();
   } else {

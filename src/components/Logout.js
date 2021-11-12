@@ -1,7 +1,15 @@
 import React from 'react';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
-const Logout = () => {        
-    return(<div></div>);
+const Logout = () => {     
+    console.log("LOgout") 
+    axiosWithAuth().post("/logout")
+        .then(res => console.log(res))
+    return (
+    <div>
+
+    </div>
+    );
 }
 
 export default Logout;
