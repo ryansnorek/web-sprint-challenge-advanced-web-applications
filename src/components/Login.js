@@ -59,7 +59,8 @@ const ComponentContainer = styled.div`
 
 const ModalContainer = styled.div`
     width: 500px;
-    background: white;
+    background: rgb(31, 31, 31);
+    color: snow;
     padding: 2rem;
     text-align: center;
 `
@@ -78,13 +79,25 @@ const Input = styled.input`
     font-size: 1rem;
     padding: 1rem 0;
     width:100%;
+    background: #4f4f4f;
+    color: lavender;
 `
 
 const Button = styled.button`
     padding:1rem;
     margin-bottom: 10%; 
     width: 100%;
-    background-color: crimson;
-    color: snow;
+    background-color: darkorchid;
+    color: lavender;
+    border: 5px solid plum;
     font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 1px 1px 1px 1px #4f4f4f;
+
+    :hover {
+        background: rgb(54, 33, 54);
+        border: 5px solid snow;
+        color: snow;
+    }
 `

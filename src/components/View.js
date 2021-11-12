@@ -79,6 +79,7 @@ const HeaderContainer = styled.h1`
 const ArticleDivider = styled.div`
     border-bottom: 1px solid black;
     padding: 1em;
+    background: rgb(126, 87, 126);
 `
 
 const ComponentContainer = styled.div`

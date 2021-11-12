@@ -3,10 +3,12 @@
 html, body, #root {
     margin: 0px;
     height: 100%;
-    background: #eeeeee;
+    background: black;
     font-family: "Lato";
 }
 
 label {
     display:block;
+    color: black;
 }
+

@@ -33,7 +33,7 @@ const ArticleStyle = styled.div`
     display: flex;
     flex-direction: row;
     padding: 0.5em; 
-    background: grey;
+    background: rgb(228, 211, 243);
 `
 
 const Container = styled.div`
@@ -44,9 +44,16 @@ const ButtonContainer = styled.div`
     padding: 1em;
     text-transform: uppercase;
     text-align:right;
+    background-color: rgb(40, 28, 51);
 
     button {
         width: 100px;
         padding:0.5em;
+        background-color: rgb(97, 79, 114);
+        color: snow;
+    }
+    button:hover {
+        background-color: rgb(114, 90, 136);
+        cursor: pointer;
     }
 `

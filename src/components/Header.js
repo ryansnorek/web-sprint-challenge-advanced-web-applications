@@ -19,7 +19,8 @@ export default Header;
 
 const HeaderStyle = styled.div`
     padding: 1em;
-    background-color: #daa1ac;
+    background-color: rgb(54, 33, 54);
+    color: lavenderblush;
     display:flex;
     align-items: center;
     justify-content: space-between;
@@ -37,7 +38,7 @@ const MenuStyle = styled.ul`
         
         a {
             text-decoration: none;
-            color: black;
+            color: lavenderblush;
             font-size: 1em;
         }
     }
