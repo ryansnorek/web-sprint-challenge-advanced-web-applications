@@ -14,11 +14,13 @@ const Login = () => {
         e.preventDefault();
         // AUTHENTICATION //
         axios.post(`${BASE_URL}/api/login`, credentials)
-            .then(res => localStorage.setItem("token", res.data.token))
+            .then(res => {
+                localStorage.setItem("token", res.data.token);
+                push("/view");
+            })
             .catch(err => setErrors(err.message));
-        if (localStorage.getItem("token")) push("/view");
     };
-
+    
     return(<ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>

@@ -1,12 +1,13 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import View from "./View";
 
 function PrivateRoute(props) {
-  const { component: Component, ...theRest } = props;
-  
-  // Check if the user is authorized to view the private page
-
-  return (<Component/>);
+  const { component: Component, ...rest } = props;
+  const token = localStorage.getItem("token");
+  return <Route {...rest} render={() => {
+      return token ? <View/> : <Redirect path="/login"/>
+  }}/>;
 }
 
 export default PrivateRoute;
