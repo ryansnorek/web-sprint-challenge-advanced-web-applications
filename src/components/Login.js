@@ -1,25 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
+import axios from "axios";
+const BASE_URL = "http://localhost:5000";
 
 const Login = () => {
-    
+    const [credentials, setCredentials] = useState({ username: "", password: "" });
+    const [errors , setErrors] = useState(false);
+    const { push } = useHistory();
+
+    const formChange = e => setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    const formSubmit = e => {
+        e.preventDefault();
+        // AUTHENTICATION //
+        axios.post(`${BASE_URL}/api/login`, credentials)
+            .then(res => localStorage.setItem("token", res.data.token))
+            .catch(err => setErrors(err.message));
+        if (localStorage.getItem("token")) push("/view");
+    };
+
     return(<ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
+            <form onSubmit={formSubmit}>
+                <input 
+                id="username"
+                name="username"
+                value={credentials.username}
+                type="text"
+                placeholder="username"
+                onChange={formChange}
+                />
+                <input 
+                id="password"
+                name="password"
+                value={credentials.password}
+                type="password"
+                placeholder="password"
+                onChange={formChange}
+                />
+                <button id="submit">submit</button>
+            </form>
+            {errors ? <p id="error">**a server provided error message can be found in {errors}**</p> : ""}
         </ModalContainer>
     </ComponentContainer>);
 }
 
 export default Login;
-
-//Task List
-//1. Build login form DOM from scratch, making use of styled components if needed. Make sure the username input has id="username" and the password input as id="password".
-//2. Add in a p tag with the id="error" under the login form for use in error display.
-//3. Add in necessary local state to support login form and error display.
-//4. When login form is submitted, make an http call to the login route. Save the auth token on a successful response and redirect to view page.
-//5. If the response is not successful, display an error statement. **a server provided error message can be found in ```err.response.data```**
-//6. MAKE SURE TO ADD id="username", id="password", id="error" AND id="submit" TO THE APPROPRIATE DOM ELEMENTS. YOUR AUTOTESTS WILL FAIL WITHOUT THEM.
 
 const ComponentContainer = styled.div`
     height: 70%;
